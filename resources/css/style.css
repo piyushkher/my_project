@@ -1,0 +1,576 @@
+/*
+Orange Color: #e67e22
+
+Orange Color: #e67e22
+
+
+*/
+
+
+/*------------------*/
+/* BASIC SETUP */
+/*------------------*/
+
+/*get rid of any presets*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+  }
+
+html{
+  background-color: white;
+  color: #555555;
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+
+/*ADD A CLASS THAT CLEARS FLOATS*/
+.clearfix{zoom:1}
+.clearfix:after{  
+  display:block;
+  content: ".";
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+/*-------------------------------*/
+/* REUSABLE COMPONENTS           */
+/*-------------------------------*/
+
+.row {
+  max-width: 1140px; /*makes it flexible for smaller screen sizes*/
+  margin: 0 auto; /*center row*/
+}
+
+section{
+  padding: 80px;
+}
+
+.box{
+  padding: 1%;
+}
+
+/* -------HEADINGS ----*/
+h1, h2, h3{
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h1{
+  margin-top: 0;  
+  color: #fff;
+  font-size: 240%;
+  word-spacing: 3px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+h2{
+  font-size: 180%;
+  text-align: center;
+  margin-bottom: 30px;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+
+/*insert margin-topped block element 
+after to EXTEND height of h2*/
+h2:after{
+  display: block;
+  height: 2px;
+  background-color: #e67e22;
+  content: "";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+h3{
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+/* -------PARAGRAPH ----*/
+.long-copy{
+  line-height: 145%;
+  margin-left: 15%;
+  width: 70%;
+}
+
+.box p{
+  line-height: 145%;
+  font-size: 90%;
+}
+
+/* -------ICONS ----*/
+
+.icon-big{
+  font-size: 300%; /*increase icon size*/
+  display: block; /*force line-break*/
+  color: #e67e22;
+  margin-bottom: 10px;
+}
+
+/*are we inlineblocking it to center hte icon?????*/
+.icon-small{
+  display: inline-block; /*used to make an inline HAVE WIDTH*/
+  width: 30px;
+  text-align: center;
+  color: #e67e22;
+  font-size: 120%;
+  margin-right: 10px;
+  
+  /*WAIT WHAT?????*/
+  /*Secrets to align text and icons*/
+  line-height: 120%;
+  vertical-align: middle;
+  margin-top: -5px;
+}
+
+/* ------LINKS ---- */
+
+/*normal and visited state LVHA rule*/
+a:link,a:visited{
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid #e67e22;
+  padding-bottom: 1px;
+  transition: border-bottom 0.2s, color 0.2s;
+}
+
+/*HOVER AND CLICKED*/
+a:hover,a:active{
+  color: #555;
+  border-bottom: 1px solid transparent;
+}
+
+/* ------BUTTONS ---- */
+
+/* unvisited link */
+/* visited link */
+.btn:link, .btn:visited,
+input[type=submit]{
+  display: inline-block; /*WHAT'S SO IMPORTANT ABOUT THIS?*/
+  padding: 10px 30px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 200px;
+  /*SLOW COLORDARKEN ANIMATON*/
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+/*NORMAL STATE*/
+.btn-full:link, .btn-full:visited,
+input[type=submit]{
+  border: 1px solid #e67e22; /*equal heights*/
+  background-color: #e67e22;
+  color: #fff;
+  margin-right: 15px;
+}
+.btn-ghost:link, .btn-ghost:visited{
+  border: 1px solid #e67e22;
+  color: #e67e22;
+}
+
+/* mouse over link */
+/* selected link */
+/*DARKEN BACKGROUND - HOVER AND CLICKED*/
+.btn:hover,.btn:active, 
+input[type=submit]:hover, input[type=submit]:active{
+  background-color: #cf6d17;
+}
+/*DARKEN BORDERS - WHEN HOVER AND CLICKED(ACTIVE)*/
+.btn-full:hover, .btn-full:active,
+input[type=submit]:hover,input[type=submit]:active{
+  border: 1px solid #cf6d17; /*equal heights*/
+}
+.btn-ghost:hover, .btn-ghost:active{
+  border: 1px solid #cf6d17;
+  color: #fff;/*white text*/
+}
+
+/*------------------*/
+/* HEADER           */
+/*------------------*/
+
+ header{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.67),rgba(0, 0, 0, 0.67)), url(img/hero.jpg);
+  height: 100vh; /*100% of the viewport*/
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.hero-text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1140px;
+  transform: translate(-50%, -50%);
+}
+
+
+.logo {
+  height: 100px;
+  float: left;
+  width: auto;
+  margin-top: 20px;
+}
+
+/*container FOR PRESETTING POSITION & STYLE of 
+anchor li items*/
+.main-nav {
+  list-style: none;
+  margin-top: 55px;
+  float: right; /*used to display lis from top to bottom*/
+}
+
+/*TO INLINE THE ANCHORS*/
+.main-nav li{
+  display: inline-block; /*lines up lis from top(left) to bottom (right)*/
+  margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+  padding: 8px 0;
+  text-decoration: none;
+  font-size: 90%;
+  text-transform: uppercase;
+  color: #fff;
+  border-bottom:2px solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+/*highlighted border upon hover*/
+.main-nav li a:hover,
+.main-nav li a:active{
+  border-bottom: 2px solid #e67e22;
+}
+/*------------------*/
+/* FEATURES            */
+/*------------------*/
+
+.section-features .long-copy{
+  margin-bottom: 40px;
+}
+
+/*------------------*/
+/* MEALS            */
+/*------------------*/
+
+/*I ADDED THIS...*/
+.section-meals{
+  padding:0;
+}
+.meals-showcase{
+  list-style: none;
+  width: 100%; /*forces it to take up 100% width of the browser*/
+  padding:0;
+}
+
+.meals-showcase li{
+  float: left;
+  width: 25%;
+}
+
+.meal-photo {
+  width: 100%; 
+  margin:0;
+  overflow: hidden;
+  background-color: black;
+}
+
+.meal-photo img{
+  opacity: 0.7; /*transparent to background - DARK FILTER*/
+  width: 100%; /*exact width of figure parent*/
+  height: auto; /*keeps aspect ratio*/
+  transform: scale(1.15);
+  transition: transform 0.5s;
+}
+
+.meal-photo img:hover{
+  opacity: 1.0;/*no filter*/
+  width: 100%; /*exact width of figure parent*/
+  height: auto; /*keeps aspect ratio*/
+  transform: scale(1.05);
+}
+
+/*------------------*/
+/* HOW IT WORKS           */
+/*------------------*/ 
+.section-steps{
+  background-color: #f4f4f4;
+}
+
+.steps-box:first-child{
+  text-align:right;
+  padding-right: 3%;
+  margin-top: 30px;
+}
+
+.steps-box:last-child{
+  padding-left: 3%;
+  margin-top: 70px;
+}
+
+.app-screen{
+  width: 40%;
+}
+
+.works-step{
+  margin-bottom: 50px;
+}
+
+/*LAST INSTANCE OF THIS CLASS, ADD MARGIN*/ß
+.works-step:last-of-type{
+  margin-bottom: 80px;
+}
+
+.works-step div{
+  display: inline-block; /*why?*/
+  height: 50px;
+  width: 50px;
+  border: 2px solid #e67e22;
+  border-radius: 50%;
+  text-align: center;
+  color: #e67e22;
+  padding: 5px;
+  float: left; /*how does this work here? workssteps aren't floated left? why do they wrap when this div is floated left?*/
+  font-size: 150%;
+  margin-right: 25px;
+}
+
+.btn-app:link, .btn-app:visited{
+  border: none;
+}
+
+.btn-app img{
+  height:50px;
+  margin-right: 10px;
+}
+/*------------------*/
+/* CITIES            */
+/*------------------*/
+
+/*FILL BOX HORIZONTALLY AND SCALE*/
+.box img{
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.city-features{
+  margin-bottom: 5px;
+}
+
+
+
+
+
+/*------------------*/
+/* TESTIMONIALS            */
+/*------------------*/
+
+/*GRADIENT BACKGROUND OF BLACK*/
+.section-testimonials{
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),url(img/back-customers.jpg);
+  background-size: cover; /*make sure it doesn't cut off*/
+  color: white;
+  background-attachment: fixed;
+}
+
+blockquote{
+  padding: 2%;
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top: 40px;
+}
+
+blockquote:before{
+  content:"\201C";
+  font-size:400%;
+  display: block;
+  position:absolute;
+  top:-5px;
+  left:-5px
+}
+
+cite{
+  font-size: 90%;
+  margin-top: 25px;
+}
+
+cite img{
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+
+/*------------------*/
+/* SIGN UP            */
+/*------------------*/
+.section-plan{
+  background-color: #f4f4f4;
+}
+
+.plan-box{
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 0 2px 2px #efefef; /* x y blur */
+}
+
+.plan-box div{
+  padding: 15px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.plan-box div:first-child{
+  background-color: #fcfcfc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child{
+  text-align: center;
+  border: none;
+}
+
+
+.plan-price{
+  font-size: 300%;
+  margin-bottom: 10px;
+  font-weight: 100;
+  color: #e67e22;
+}
+
+.plan-price span{
+  font-size: 30%; /*THIS IS BASED ON THE PARENT FONT-SIZE*/
+  font-weight: 300;
+}
+
+.plan-price-meal{
+  font-size: 80%;
+}
+
+.plan-box ul{
+  list-style:none;
+}
+
+.plan-box ul li{
+  padding: 5px 0;
+}
+
+/*------------------*/
+/* SIGN UP            */
+/*------------------*/
+
+.contact-form {
+  width:60%;
+  margin: 0 auto;
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea{
+  width:100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+textarea{
+  height: 100px;
+}
+
+input[type=checkbox]{
+ margin: 10px 5px 10px 0; 
+}
+
+*:focus{
+  outline:none;
+}
+
+/*------------------*/
+/* FOOTER             */
+/*------------------*/
+
+
+footer{
+  background-color: #333;
+  padding: 60px;
+}
+
+.footer-nav{
+  list-style: none;
+  float: left;
+}
+
+.social-links{
+  list-style: none;
+  float:right;
+}
+
+footer li{
+  display: inline-block; 
+  margin-right: 20px;
+}
+
+.social-links li:last-child,
+.footer-nav li:last-child{
+  margin-right:0;
+}
+
+.footer-nav li a:link, .footer-nav li a:visited, 
+.social-links li a:link, .social-links li a:visited{
+  border: none;
+  color: #888;
+  transition: color 0.2s;
+}
+
+/* ADDED EFFECT FOR SOCIAL-LINKS links*/
+.social-links li a:link, .social-links li a:visited{
+  font-size:180%;
+}
+
+.footer-nav li a:hover, .footer-nav li a:active{
+  color: #ddd;
+}
+
+footer p{
+  color: #888;
+  text-align: center;
+  font-size: 90%;
+  margin-top: 30px;
+}
+
+.ion-social-facebook,
+.ion-social-twitter,
+.ion-social-googleplus,
+.ion-social-instagram{
+  transition: color 0.2s;
+}
+
+ .ion-social-facebook:hover{
+  color: #3b5998;
+}
+
+.ion-social-twitter:hover{
+  color: #00aced;
+}
+
+.ion-social-googleplus:hover{
+  color: #dd4b39;
+}
+
+.ion-social-instagram:hover{
+  color: #007bb6;
+}
+
